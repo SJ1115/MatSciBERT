@@ -53,17 +53,21 @@ remove_tags = [
 ]
 fi, l = 0, 0
 k = 0 
+
 #### for fix
-fi = 4
+fi = 0 ## 짤려서 다시 시작해야 할 경우
 #### \for fix
+
 f = open(callpath(f"data/pretrain/txt/abs_{fi}.txt"), 'w')
 iterator = tqdm(total=len(doi))
 for i, di in enumerate(doi):
     iterator.update()
+    
     #### for fix
-    if i <= 54797: 
+    if i <= 0: # 짤린 라인 전까지 
         continue
     #### \for fix
+    
     try:
         doi_doc = FullDoc(doi = di)
         reader.read(doi_doc)
